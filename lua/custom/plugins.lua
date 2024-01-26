@@ -1,4 +1,5 @@
 local overrides = require("custom.configs.overrides")
+local cmp = require "cmp"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -18,6 +19,55 @@ local plugins = {
     lazy = false
   },
 
+-- rust setup 
+ {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "rust-analyzer",
+      },
+    },
+  },
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function ()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+  },
+
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function ()
+      return require "custom.configs.rust-tools"
+    end,
+    config = function(_, opts)
+      require('rust-tools').setup(opts)
+    end
+  },
+
+   {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local M = require "plugins.configs.cmp"
+      M.completion.completeopt = "menu,menuone,noselect"
+      M.mapping["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = false,
+      }
+      table.insert(M.sources, {name = "crates"})
+      return M
+    end,
+  },
+-- rust setup
+
   {
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
@@ -30,7 +80,16 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = {
+      overrides.mason,
+      ensure_installed = {
+        "rust-analyzer",
+        "lua-language-server",
+        "html-lsp",
+        "prettier",
+        "stylua"
+      },
+    },
   },
 
   {
