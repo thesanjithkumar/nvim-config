@@ -23,6 +23,12 @@
 
   </div>
 
+## Instalation
+
+```Bash
+https://github.com/thesanjithkumar/nvim-config ~/.config/nvim --depth 1 && nvim
+```
+
 ## Showcase
 
 <img src="https://nvchad.com/features/nvdash.webp">
