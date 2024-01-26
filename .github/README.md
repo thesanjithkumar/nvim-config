@@ -25,8 +25,8 @@
 
 ## Instalation
 
-```Bash
-https://github.com/thesanjithkumar/nvim-config ~/.config/nvim --depth 1 && nvim
+```bash
+git clone https://github.com/thesanjithkumar/nvim-config ~/.config/nvim --depth 1 && nvim
 ```
 
 ## Showcase
