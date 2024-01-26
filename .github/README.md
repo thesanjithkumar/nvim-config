@@ -29,6 +29,22 @@
 git clone https://github.com/thesanjithkumar/nvim-config ~/.config/nvim --depth 1 && nvim
 ```
 
+## Uninstall
+
+```bash
+# Linux / Macos (unix)
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+
+# Windows CMD
+rd -r ~\AppData\Local\nvim
+rd -r ~\AppData\Local\nvim-data
+
+# Window PowerShell
+rm -Force ~\AppData\Local\nvim
+rm -Force ~\AppData\Local\nvim-data
+```
+
 ## Showcase
 
 <img src="https://nvchad.com/features/nvdash.webp">
