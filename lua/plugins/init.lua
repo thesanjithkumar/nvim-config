@@ -5,20 +5,6 @@ local default_plugins = {
   "nvim-lua/plenary.nvim",
 
   {
-    "wakatime/vim-wakatime",
-    lazy = false
-  },
-
-  {
-    "kdheepak/lazygit.nvim",
-    -- optional for floating window border decoration
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
-    lazy=false,
-  },
-
-  {
     "NvChad/base46",
     branch = "v2.0",
     build = function()
